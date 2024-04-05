@@ -26,7 +26,7 @@ Aaaand that's it! You're ready to start with week 6.
 
 **Happy coding** :star_struck:
 
-# Python Packages (Exercise 1)
+# Exercise 1: Python Package installation
 
 ## Installing a Python Package (part A)
 
@@ -63,7 +63,7 @@ This command will download the latest stable version of the `drfp` package from 
 
 ### Testing DRFP from pypi
 
-Now open `jupyter lab`, and run the `07_drfp_test.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
+Now open `jupyter lab`, and run the `exercise01/07_drfp_partA.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
 
 ## Installing from Source (part B)
 
@@ -120,7 +120,52 @@ Once you are there:
 jupyter lab
 ```
 
-and execute the code cells in `07_drfp_test.ipynb` again. 
+and execute the code cells in `exercise01/07_drfp_partB.ipynb`. 
+
+
+# Exercise 2: Turn a scripts into Python packages
+
+
+Just to be save let's create another conda environment.
+
+```
+conda deactivate
+conda create -n w7_reactions python=3.10 jupyterlab
+```
+Activate your new environment. 
+
+```
+conda activate w7_reactions
+```
+And start another jupyterlab in this environment.
+
+```
+jupyter lab
+```
+
+Follow the instructions in `exercise_02/07_from_script_to_package.ipynb` to learn more about how to build your first package using `pyproject.toml`. Remember that the build tool will only recognize subfolders containing an `__init__.py` file (even if empty) as part of the package. 
+
+Additional information can be found on how to write a `pyproject.toml` file can be found on [https://packaging.python.org/en/latest/guides/writing-pyproject-toml/](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). Here, we will first just explore the minimal set of metadata. 
+
+
+# Exercise 3: Turn an RXN-insight into a Python package
+
+Let's stay in the `w7_reactions` conda environment. If it's not activated, run `conda activate w7_reactions`.
+
+1. Fork the following repository to your GitHub profile [https://github.com/schwallergroup/Rxn-INSIGHT](https://github.com/schwallergroup/Rxn-INSIGHT). 
+
+2. Clone it to your computer (e.g. in `~/git` or any other folder outside the ` folder) using the commands that you have learned so far. 
+
+3. Turn it into a Python package.
+   - To do so you should add a `pyproject.toml` file to the root folder.
+   - Move the `rxn_insight` into a `src` folder, which you have to create
+   - Add an `__init__.py` file in the correct folder.
+   - Add a `.gitignore` file to the root folder of the project.
+     
+4. When you manage to do all that
+
+
+
 
 
 
