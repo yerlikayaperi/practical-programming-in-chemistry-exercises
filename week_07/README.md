@@ -61,6 +61,9 @@ Now, you're ready to install the `drfp` package using one of the following metho
 
 This command will download the latest stable version of the `drfp` package from PyPI and install it in your current conda environment.
 
+### Testing DRFP from pypi
+
+Now open `jupyter lab`, and run the `07_drfp_test.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
 
 ## Installing from Source (part B)
 
@@ -74,10 +77,15 @@ Open a new terminal or run `conda deactivate`.
 
 ```
 conda create -n drfp_source python=3.10 jupyterlab
+```
+Then activate the environment. 
+```
 conda activate drfp_source
 ```
 
-1. Clone the GitHub repository by running the following command:
+1. Clone the GitHub repository by running the address you find on [https://github.com/reymond-group/drfp/](https://github.com/reymond-group/drfp/) under `Code`. One potential folder to place it would be `~/git`, but you can also put it into another folder. The folder has to be created before you can navigate there with `cd`. It should be outside your exercises folder.
+
+![Clone address](../assets/week_07_clone.jpg)
 
 ```
 cd /path/to/your/target_folder
@@ -96,8 +104,23 @@ cd drfp
 pip install -e .
 ```
 
-The `-e` flag stands for "editable" mode, which allows you to make changes to the source code and have them immediately reflected in your installation without having to reinstall the package.
+The `-e` flag stands for "editable" mode, which allows you to make changes to the source code and have them immediately reflected in your installation without having to reinstall the package. This is not necessary in this case, but typically useful if you want to make changes to the code. You could have also run `pip install .`. 
 
 By installing from source in development mode, you have the flexibility to modify the code or stay up-to-date with the latest changes made to the package.
 
 Remember, it's generally a good practice to create a new conda environment for each project to avoid potential conflicts and maintain a clean working environment.
+
+### Testing DRFP from source
+
+In a terminal, navigate back to the your `week_07` exercise folder using `cd`.
+
+Once you are there:
+
+```
+jupyter lab
+```
+
+and execute the code cells in `07_drfp_test.ipynb` again. 
+
+
+
