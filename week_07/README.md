@@ -148,22 +148,25 @@ Follow the instructions in `exercise_02/07_from_script_to_package.ipynb` to lear
 Additional information can be found on how to write a `pyproject.toml` file can be found on [https://packaging.python.org/en/latest/guides/writing-pyproject-toml/](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). Here, we will first just explore the minimal set of metadata. 
 
 
-# Exercise 3: Turn an RXN-insight into a Python package
+# Exercise 3 (optional, advanced): Turn an RXN-insight into a Python package
 
-Let's stay in the `w7_reactions` conda environment. If it's not activated, run `conda activate w7_reactions`.
+[Rxn-INSIGHT](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-024-00834-z) provides a lot of valuable information on chemical reactions. Unfortunately, the code is not distributed as a pip installable package. You could import the functionality from the scripts, but making it into a Python package would be much more valuable.
+
+Could you do that? Here some pointers to start with: 
 
 1. Fork the following repository to your GitHub profile [https://github.com/schwallergroup/Rxn-INSIGHT](https://github.com/schwallergroup/Rxn-INSIGHT). 
 
-2. Clone it to your computer (e.g. in `~/git` or any other folder outside the ` folder) using the commands that you have learned so far. 
+2. Clone it to your computer (e.g. in `~/git` or any other folder outside the ` folder) using the commands that you have learned so far. Don't follow the installation in the README, but use a separate and new conda environment. 
 
 3. Turn it into a Python package.
    - To do so you should add a `pyproject.toml` file to the root folder.
    - Move the `rxn_insight` into a `src` folder, which you have to create
    - Add an `__init__.py` file in the correct folder.
    - Add a `.gitignore` file to the root folder of the project.
-     
-4. When you manage to do all that
+   - and for example, 
+   The goal is to be able to `pip install -e .` the code and use the functions. Some challenges might arise because of the json files. 
 
+4. Play around with the functionality of your new package, e.g. start from the `demo.ipynb` notebook. 
 
 
 
