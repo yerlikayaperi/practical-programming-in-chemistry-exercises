@@ -63,7 +63,7 @@ This command will download the latest stable version of the `drfp` package from 
 
 ### Testing DRFP from pypi
 
-Now open `jupyter lab`, and run the `exercise01/07_drfp_partA.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
+Now open `jupyter lab`, and run the `exercise_01/07_drfp_partA.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
 
 ## Installing from Source (part B)
 
