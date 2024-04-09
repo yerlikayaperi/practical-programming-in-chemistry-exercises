@@ -126,7 +126,7 @@ and execute the code cells in `exercise01/07_drfp_partB.ipynb`.
 # Exercise 2: Turn a scripts into Python packages
 
 
-Just to be save let's create another conda environment.
+Just to be safe let's create another conda environment.
 
 ```
 conda deactivate
