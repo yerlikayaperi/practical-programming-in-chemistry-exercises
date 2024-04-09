@@ -22,7 +22,7 @@ Welcome to week 7! As always, we first need to update the remote and local repos
     git pull
     ```
 
-Aaaand that's it! You're ready to start with week 6.
+Aaaand that's it! You're ready to start with week 7.
 
 **Happy coding** :star_struck:
 
@@ -63,7 +63,7 @@ This command will download the latest stable version of the `drfp` package from 
 
 ### Testing DRFP from pypi
 
-Now open `jupyter lab`, and run the `exercise01/07_drfp_partA.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
+Now open `jupyter lab`, and run the `exercise_01/07_drfp_partA.ipynb`. This is just a quick test to make sure that `drfp` was properly installed.
 
 ## Installing from Source (part B)
 
@@ -126,7 +126,7 @@ and execute the code cells in `exercise01/07_drfp_partB.ipynb`.
 # Exercise 2: Turn a scripts into Python packages
 
 
-Just to be save let's create another conda environment.
+Just to be safe let's create another conda environment.
 
 ```
 conda deactivate
