@@ -22,7 +22,7 @@ Welcome to week 7! As always, we first need to update the remote and local repos
     git pull
     ```
 
-Aaaand that's it! You're ready to start with week 6.
+Aaaand that's it! You're ready to start with week 7.
 
 **Happy coding** :star_struck:
 
