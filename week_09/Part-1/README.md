@@ -36,7 +36,7 @@ Export your Jupyter Notebook (`YourNotebook.ipynb`) to a standard Python script 
 jupyter nbconvert --to script your_new_notebook.ipynb
 ```
 
-This creates `YourNotebook.py`. Rename and organize this file into a meaningful module name.
+This creates `your_new_notebook.txt`. You will need to rename the file extension to ``.py`` Rename and organize this file into a meaningful module name.
 
 #### Step 4: Using Copier to Create the Package Structure**
 
@@ -53,18 +53,28 @@ Instead of manually creating directories and files as outlined previously, you c
    Utilize Copier with the schwallergroup template to create your project structure. Make sure you're still within your `ppchem` environment:
 
    ```bash
-   copier https://github.com/schwallergroup/copier-liac.git /path/to/you/CDK-Package
+   copier copy https://github.com/schwallergroup/copier-liac.git /path/to/you/CDK-Package
    ```
 
    Enter the directory path where you want your new project to be initiated. Follow the on-screen prompts provided by Copier to customize the project (such as naming modules or defining author details).
+   Enforce the code style as : strict (precommit, ruff, mypy)
 
 3. **Place Your Converted Module**:
-   Move or copy the Python scripts (converted from your Jupyter notebooks in Step 3) into the appropriate directories within this newly created package structure. Typically, this will be under the main package directory.
+   Move or copy the Python scripts (converted from your Jupyter notebooks in Step 3) into the appropriate directories within this newly created package structure. Typically you should place this in `src/package_name`.
 
-Proceed with the next steps as previously outlined:
+4. **Setup ths Code**
+   Open the `__init__.py` file. Add a line of the following format to import the functions from the code we generated from your notebook
 
-#### Step 6 (updated): Initialize Git Repository
-Now, initialize a git repository to start version control within the newly created directory structure:
+   ```python
+   from .your_file_name import smiles_depict_url, display_svg
+   ```
+
+   Remember to use the names you gave to your functions
+
+
+#### Step 6: Initialize Git Repository
+1. **Create a Local Repository**
+Initialize a git repository to start version control within the newly created directory structure:
 
 ```bash
 cd /path/to/you/CDK-Package
@@ -73,8 +83,82 @@ git add .
 git commit -m "Initial package setup with Copier"
 ```
 
-#### Steps 7 to 9
-Follow the original steps to install your package. These actions involve using `pip install -e .`.
+Next, you need to create a remote repository where your code will be stored online.
+
+2. **Create a New Upstream Repository**
+   - Navigate to the Repositories tab on Github.com and click on the "New" button.
+   - Name your repository (e.g., `CDK-Package`).
+   - Choose if you want your repository to be public (anyone can see this repository) or private (you choose who can see and commit to this repository).
+   - **Important**: Do not initialize the repository with a README, .gitignore, or License. Your local repository already contains these files if necessary.
+   - Click the "Create repository" button.
+
+3. **Link Your Local Repository to the Remote Repository**
+   - Once your repository is created, GitHub will display a page with a URL and some setup instructions. Copy the URL for the repository.
+   - Go back to your terminal and link your local repository with the remote repository using the following command:
+     ```bash
+     git remote add origin YOUR_REMOTE_URL
+     ```
+     Replace `YOUR_REMOTE_URL` with the copied URL.
+
+4. **Push Your Local Repository to GitHub**
+   - Now, push the changes from your local repository to GitHub with:
+     ```bash
+     git push -u origin master
+     ```
+   - The `-u` flag is used to set the upstream (tracking reference) for your local branch.
+
+5. **Verify Everything is Online**
+- Go back to your repository on GitHub and refresh the page. You should now see all the files you've added locally.
+
+#### Step 7: Install Your Local Package
+Now we have the code in our package prepared, we must set it up as installable so yourself and others could access it through a simple **pip install cdkpackage**.
+
+Do do this we need to create a setup.py file. This tells python that we are in a package and what dependancies must be installed. Fill in the code below and create a setup.py file in the directory you created the package. I created an example using my details, but fill in your own.
+
+```python
+from setuptools import setup, find_packages
+
+setup(
+    name="smiles_visualizer",
+    version="0.1.0",
+    author="Your Name",
+    author_email="your.email@example.com",
+    description="A small utility to fetch and display SMILES structures as SVG using an external API.",
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    url="http://github.com/yourusername/smiles_visualizer",
+    packages=find_packages(),
+    install_requires=[
+        "requests",
+        "IPython",
+    ],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+)
+```
+
+
+To use your package within the `ppchem` environment, navigate to the project root where `setup.py` is located, and run:
+
+```bash
+python setup.py sdist bdist_wheel
+pip install -e .
+```
+
+This installs the package in editable mode (symlink) so changes are reflected immediately.
+
+
+#### Step 8: Test Your Package
+
+Ensure everything works by importing your package in Python:
+
+```python
+from mychemistrypackage import smiles_depict_url, display_svg
+
 
 #### Advantages of Using Copier:
 - **Standardized Setup**: Ensures all projects start with a consistent, error-free base.
