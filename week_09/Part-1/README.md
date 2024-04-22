@@ -154,17 +154,33 @@ This installs the package in editable mode (symlink) so changes are reflected im
 
 #### Step 8: Test Your Package
 
-Ensure everything works by importing your package in Python:
+Ensure everything works by importing your package in Python. Try out your functions, do you get the same result as in the notebook?
 
-```python
-from mychemistrypackage import smiles_depict_url, display_svg
+#### Step 9: Create formal tests using pytest
 
+1. **Install pytest**:
+   If not already installed, you can install pytest using pip:
+   ```bash
+   pip install pytest
+   ```
 
-#### Advantages of Using Copier:
-- **Standardized Setup**: Ensures all projects start with a consistent, error-free base.
-- **Efficiency**: Saves time and reduces manual errors in setting up a package structure.
-- **Scalability**: Easy to update and scale your project structure as Copier templates can be modified and reused.
+2. **Create a Test File**:
+   Inside your project structure, usually under a `tests` folder, create a test file named `test_depict_url.py` or similar.
 
-### Conclusion
-By incorporating Copier in the setup process, you enhance reproducibility and consistency across scientific programming projects in chemistry. This approach not only streamlines the workflow but also guarantees that all necessary best practices in software development are followed from the outset.
+3. **Write Test Cases**:
+   In the `test_depict_url.py` file, add the following Python code to create test cases for the `smiles_depict_url` function.
 
+   ```python
+   import pytest
+   from smiles_visualizer import smiles_depict_url
+
+   def test_smiles_depict_url():
+       # test your code here
+   ```
+
+4. **Run the Tests**:
+   Navigate to your project's root directory in the terminal, and run:
+   ```bash
+   pytest
+   ```
+   This command will discover and run all the tests in the `tests` directory.
