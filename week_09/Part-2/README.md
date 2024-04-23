@@ -43,7 +43,21 @@ What if we pass an invalid SMILES string? A good test could be that an appropria
 message is raised. 
 
 To the file `test_classification.py`, add `import pytest` to the top of the file, as the
-first import. Uncomment the test function `test_initialization_error` and re-run the tests.
+first import. Copy the following unit test into the test file:
+
+```py
+def test_initialization_error():
+    """
+    Tests that the appropriate error is raised when initializing the
+    ReactionClassifier class with an invalid reaction SMILES
+    """
+    rxn_smiles_with_atom_mapping = "invalid_smiles"
+
+    ReactionClassifier(rxn_smiles_with_atom_mapping, keep_mapping=True)
+```
+
+and re-run the tests.
+
 Inspect the output. The test fails because the code raises an error. This is what we
 want: passing the string `"invalid_smiles"` as the reaction SMILES should raise an
 error. However the test should still pass, so we need to modify the test to tell pytest
