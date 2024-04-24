@@ -107,7 +107,7 @@ extension `utils.py`, as these utility functions are used in `classification.py`
 not the other modules.
 
 
-### A note one test-driven development
+### A note on test-driven development
 
 In our case, we are retrospectively writing tests for code that has already been
 written. However, when building your owm project you can use the principle of
@@ -130,11 +130,11 @@ maximised in isolation.
 
 # Main exercise
 
-Now for the main exercise of today. This is purposefully left wuite open-ended so you
+Now for the main exercise of today. This is purposefully left open-ended so you
 have space to think about code design, functionality, and user experience. 
 
 **The aim is simple**: get the code coverage as high as possible, ideally > 80%, by
-writing a series of well-designed tests.
+writing a series of ***well-designed*** tests.
 
 Some general advice to help you in the process:
 
@@ -160,7 +160,7 @@ Some general advice to help you in the process:
   fixtures, parametrization, and doctests.
 
 
-Need help getting started? 
+### Need help getting started? 
 
 First, you can try to increase the coverage of tests for the module `classification.py`.
 A good way to do this is to test the class methods, such as
