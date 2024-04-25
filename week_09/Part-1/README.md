@@ -119,7 +119,7 @@ Do do this we need to create a setup.py file. This tells python that we are in a
 from setuptools import setup, find_packages
 
 setup(
-    name="smiles_visualizer",
+    name="cdkpackage",
     version="0.1.0",
     author="Your Name",
     author_email="your.email@example.com",
@@ -172,7 +172,7 @@ Ensure everything works by importing your package in Python. Try out your functi
 
    ```python
    import pytest
-   from smiles_visualizer import smiles_depict_url
+   from cdkpackage import smiles_depict_url
 
    def test_smiles_depict_url():
        # test your code here
