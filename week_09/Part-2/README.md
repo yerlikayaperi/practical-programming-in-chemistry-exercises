@@ -43,7 +43,21 @@ What if we pass an invalid SMILES string? A good test could be that an appropria
 message is raised. 
 
 To the file `test_classification.py`, add `import pytest` to the top of the file, as the
-first import. Uncomment the test function `test_initialization_error` and re-run the tests.
+first import. Copy the following unit test into the test file:
+
+```py
+def test_initialization_error():
+    """
+    Tests that the appropriate error is raised when initializing the
+    ReactionClassifier class with an invalid reaction SMILES
+    """
+    rxn_smiles_with_atom_mapping = "invalid_smiles"
+
+    ReactionClassifier(rxn_smiles_with_atom_mapping, keep_mapping=True)
+```
+
+and re-run the tests.
+
 Inspect the output. The test fails because the code raises an error. This is what we
 want: passing the string `"invalid_smiles"` as the reaction SMILES should raise an
 error. However the test should still pass, so we need to modify the test to tell pytest
@@ -93,7 +107,7 @@ extension `utils.py`, as these utility functions are used in `classification.py`
 not the other modules.
 
 
-### A note one test-driven development
+### A note on test-driven development
 
 In our case, we are retrospectively writing tests for code that has already been
 written. However, when building your owm project you can use the principle of
@@ -116,11 +130,11 @@ maximised in isolation.
 
 # Main exercise
 
-Now for the main exercise of today. This is purposefully left wuite open-ended so you
+Now for the main exercise of today. This is purposefully left open-ended so you
 have space to think about code design, functionality, and user experience. 
 
 **The aim is simple**: get the code coverage as high as possible, ideally > 80%, by
-writing a series of well-designed tests.
+writing a series of ***well-designed*** tests.
 
 Some general advice to help you in the process:
 
@@ -146,7 +160,7 @@ Some general advice to help you in the process:
   fixtures, parametrization, and doctests.
 
 
-Need help getting started? 
+### Need help getting started? 
 
 First, you can try to increase the coverage of tests for the module `classification.py`.
 A good way to do this is to test the class methods, such as
