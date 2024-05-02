@@ -25,7 +25,7 @@ Below is a table linking to the exercise folders for each week. Navigate to the 
 | 07 | Making a Python package | [Week 07](week_07) |
 | 08 | Data Acquisition and Cleaning, Web APIs | [Week 08](week_08) |
 | 09 | More packaging; project templates, code testing and coverage. | [Week 09](week_09) |
-| 10 |  | Week 10 |
+| 10 | Visualization and analysis of chemical data (clustering) | [Week 10](week_10) |
 | 11 |  | Week 11 |
 | 12 |  | Week 12 |
 
